@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<title>My Example</title>
+<head>
+	<script type="text/javascript" language="javascript">
+		function apiCall() {
+			/*const userAction = async () => {
+			const response = await fetch('http://localhost:9090/v1/vehicles', {
+				method: 'GET', // string or object
+				headers: {
+					'Authorization': 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZGlsIiwicm9sZXMiOlsiUk9MRV9BRE1JTiJdLCJpYXQiOjE1NjQ3NzQyOTcsImV4cCI6MTU2NDc3Nzg5N30.J3tY3cNqndD5-XtMQHwdgPyJZwZE68B3Oo3f0-hF7_A'
+				}
+			});
+			const myJson = await response.json();
+			}*/
+			alert("Response:\n");
+			console.log("inside apiCall");
+			var xhttp = new XMLHttpRequest();
+			xhttp.onreadystatechange = function() {
+				if (this.readyState == 4 && this.status == 200) {
+					alert(this.responseText);
+				}
+			};
+			xhttp.open("GET", "http://192.168.1.8:9090/v1/vehicles", true);
+			xhttp.setRequestHeader("Authorization", "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZGlsIiwicm9sZXMiOlsiUk9MRV9BRE1JTiJdLCJpYXQiOjE1NjQ3NzcwNDYsImV4cCI6MTU2NDc4MDY0Nn0.ktAKe4TtaZSNlkx7Ai8uxj4c58W-eLueFJpl26gfUVg");
+			xhttp.send();
+		}
+	</script>
+</head>
+<form>
+
+	<h1>API CALL</h1>
+
+	<p><button type="submit" onclick="apiCall()">Submit Booking</button></p>
+
+</form>
+
+<hr>
